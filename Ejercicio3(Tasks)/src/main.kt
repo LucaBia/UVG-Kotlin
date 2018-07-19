@@ -43,6 +43,15 @@ fun toString(): String {
         """.trimIndent()
 }
 
+fun getListasMenu(): String{
+    var resultado = ""
+
+    for(i in listas.indices){
+        resultado += "${i + 1} ${listas[i].nombreLista}\n "
+    }
+    return resultado
+}
+
 
 
 fun main(args: Array<String>){
@@ -58,7 +67,7 @@ fun main(args: Array<String>){
                 1 -> {
                     println("Ingrese el nombre de su nueva lista de tareas: ")
                     val nombreListaNueva = readLine()!!
-                    if(lista.findTarea(nombreListaNueva) != null){
+                    if(findLista(nombreListaNueva) != null){
                         println("Esta lista ya ha sido registrada anteriormente")
                     }else{
                         val listaNueva = Lista(nombreListaNueva)
@@ -67,14 +76,45 @@ fun main(args: Array<String>){
                     }
                 }
                 2 -> {
-                    println(toString())
+                    println(getListasMenu())
 
                 }
                 3 -> {
+                    println(getListasMenu())
+                    println("")
+                    print("Ingrese el numero de la lista a seleccionar: ")
+                    val opcionlista = readLine()!!.toInt()
+                    println("Lista Seleccionada exitosamente ($opcionlista)")
+                    println("")
+                    println("""
+                        1. Deseleccionar lista actual
+                        2. Agregar una tarea
+                        3. Completar una tarea
+                        4. Ver todas las tareas en esta lista
+                        5. Salir
+                    """.trimIndent())
+
+                    when (opcionlista){
+                        1 -> {
+                            println(getMenu(lista.tieneLista()))
+                        }
+                        2 -> {
+                            println("Ingrese el titulo de la nueva tarea: ")
+                            val nombreTareaNueva = readLine()!!
+                            if(lista.findTarea(nombreTareaNueva) != null){
+                                println("Esta tarea ya ha sido registrada anteriormente")
+                            }else{
+                                val tareaNueva = Lista(nombreTareaNueva)
+                                //lista.addTarea(tareaNueva)
+                                println("Nueva tarea agregada exitosamente!")
+                            }
+                        }
+                    }
 
                 }
                 4 -> {
-
+                    wantsToContinue = false
+                    println("Has salido del programa, gracias por utilizarlo")
                 }
             }
         }else{

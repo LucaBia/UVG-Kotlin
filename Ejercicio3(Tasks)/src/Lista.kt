@@ -14,14 +14,14 @@ class Lista(val nombreLista: String,
         return null
     }
 
-    /*fun addTarea(lista: Lista): Boolean {
-        if (findTarea(lista.nombreLista) == null) {
-            tareas.add(lista)
+    fun addTarea(tarea: Tarea): Boolean {
+        if (findTarea(tarea.nombreTarea) == null) {
+            tareas.add(tarea)
             return true
         }
 
         return false
-    }*/
+    }
 
     fun tieneLista(): Boolean {
         return this.tieneLista
