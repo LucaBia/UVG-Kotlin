@@ -47,17 +47,33 @@ class ParkingLot(
     }
 
     override fun toString(): String {
-        val levelNames = levels.map { it.name }.joinToString().split(", ")
-        levelNames.forEach { it }
-        var hola = levels.forEach{ it.name }
+        val levelNames = levels.map { it.name }.joinToString().split("\n ")
+        val levelId = levels.map { it.id }.joinToString().split("\n ")
+        val levelColors = levels.map { it.color }.joinToString().split("\n ")
+        //var hola = levels.forEach{ it.name }
         for (item in levelNames){
-            println(item)
+            for (item2 in levelId){
+                for (item3 in levelColors){
+                    println(item + "\n" + item2 + "\n" + item3)
+                }
+            }
         }
         //val levelNames = levels.joinToString()
         return """
             Nivel:
                 Nombre: $levelNames
         """.trimIndent()
+
+
+        /*var map = ""
+
+        levels.forEach {
+            map += it
+        }
+
+        return map*/
+
+
     }
 
 

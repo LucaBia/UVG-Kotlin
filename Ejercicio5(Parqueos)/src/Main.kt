@@ -1,6 +1,7 @@
 import trabajo.*
 import java.io.File
 import java.io.InputStream
+import javax.swing.text.StyledEditorKit
 
 
 fun main(args: Array<String>){
@@ -64,23 +65,46 @@ fun main(args: Array<String>){
                     }
                 }
                 3 ->{
-                    println(myParkingLot.toString())
+                    myParkingLot.levels.forEach { level -> println("""
+                        Nombre: ${level.name}
+                        ID: ${level.id}
+                        Color: ${ level.color}
+
+                    """.trimIndent()) }
 
                 }
                 4 -> {
-                    wantsToContinue = false
+                    //wantsToContinue = false
+                    miMenu.Admin = false
                 }
             }
         } else {
+            var haveLicensePlate: Boolean = false
             println("Ingrese una opcion del menu (1-2)")
             val driverOption = readLine()!!.toInt()
             when (driverOption) {
                 1 -> {
+                    print("Ingrese el numero de placa de su vehiculo: ")
+                    var licensePlate = readLine()!!
+                    for (item in myParkingLot.levels){
+                        if (item.findLicensePlate(licensePlate)){
+                            haveLicensePlate = true
+                        }
+                    }
 
+                    if (haveLicensePlate){
+                        println("Esta placa ya ha sido registrada.")
+                        //TODO 5puntos extra
+                    }else {
+                        var avaibleSpaces: Boolean = true
+                        for (item in myParkingLot.levels){
+
+                        }
+                    }
                 }
 
                 2 -> {
-                    wantsToContinue = false
+                    miMenu.Admin = true
                 }
             }
         }
