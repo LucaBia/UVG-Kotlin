@@ -1,8 +1,4 @@
 import trabajo.*
-import java.io.File
-import java.io.InputStream
-import javax.swing.text.StyledEditorKit
-
 
 fun main(args: Array<String>){
     val miMenu = Menu()
@@ -18,7 +14,7 @@ fun main(args: Array<String>){
         val option = readLine()!!.toInt()
         println(miMenu.getMenu(option))
 
-        if (miMenu.Admin.equals(true)) {
+        if (miMenu.admin) {
             println("Ingrese una opcion del menu (1 - 4): ")
             val adminOption = readLine()!!.toInt()
             when (adminOption) {
@@ -31,7 +27,7 @@ fun main(args: Array<String>){
                         println("Este Nivel ya ha sido registrado anteriormente")
                     }else{
                         print("Identificador: ")
-                        val id = readLine()!!.toInt()
+                        val id = readLine()!!
                         if (myParkingLot.findId(id) != null){
                             println("Este Id ya ha sido utilizado anteriormente")
                         }else{
@@ -42,14 +38,15 @@ fun main(args: Array<String>){
                             }else{
                                 println("Archivo de estructura: ")
                                 val file = readLine()!!
-                                //Leer archivo
-                                val inputStream: InputStream = File(file).inputStream()
-                                val inputString = inputStream.bufferedReader().use { it.readText() }
-                                println(inputString)
+                                val newLevel = myParkingLot.createLevel(file, name, id, color)
+                                if(myParkingLot.addLevel(newLevel)){
+                                    println(file)
+                                    println("Nivel agregado exitosamente")
+                                }else{
+                                    println("Este nivel ya ha sido creado anteriormente")
+                                }
 
-                                val level = Level(name, id, color)
-                                myParkingLot.addLevel(level)
-                                println("Nivel agregado exitosamente")
+
 
                             }
 
@@ -59,7 +56,7 @@ fun main(args: Array<String>){
                 }
                 2 -> {
                     println("Ingrese el identificador del nivel para eliminarlo: ")
-                    val deleteLevel = readLine()!!.toInt()
+                    val deleteLevel = readLine()!!
                     if (myParkingLot.findId(deleteLevel) != null){
                         myParkingLot.removeLevel(deleteLevel)
                     }
@@ -68,43 +65,75 @@ fun main(args: Array<String>){
                     myParkingLot.levels.forEach { level -> println("""
                         Nombre: ${level.name}
                         ID: ${level.id}
-                        Color: ${ level.color}
+                        Color: ${level.color}
+                        Estructura: ${level.file}
 
                     """.trimIndent()) }
 
                 }
                 4 -> {
                     //wantsToContinue = false
-                    miMenu.Admin = false
+                    miMenu.admin = false
                 }
             }
         } else {
-            var haveLicensePlate: Boolean = false
             println("Ingrese una opcion del menu (1-2)")
             val driverOption = readLine()!!.toInt()
             when (driverOption) {
                 1 -> {
+                    var havelicensePLate = false
                     print("Ingrese el numero de placa de su vehiculo: ")
-                    var licensePlate = readLine()!!
-                    for (item in myParkingLot.levels){
-                        if (item.findLicensePlate(licensePlate)){
-                            haveLicensePlate = true
+                    val licensePlate = readLine()!!
+                    for (i in myParkingLot.levels){
+                        if (i.findLicensePlate(licensePlate)){
+                            havelicensePLate = true
                         }
                     }
-
-                    if (haveLicensePlate){
-                        println("Esta placa ya ha sido registrada.")
-                        //TODO 5puntos extra
+                    if (havelicensePLate){
+                        println("Este numero de placa ya ha sido registrada anteriormente")
+                        //TODO Extra 5 puntos
+                        /*for (i in myParkingLot.levels){
+                            if (i.findLicensePlate(licensePlate)){
+                                val levelofLicense = myParkingLot.levels.indexOf(i)
+                                println("La placa tiene los siguientes datos: ")
+                                println(myParkingLot.levels[levelofLicense])
+                            }
+                        }*/
                     }else {
-                        var avaibleSpaces: Boolean = true
-                        for (item in myParkingLot.levels){
-
+                        var blankSpaces = false
+                        var levelsAvaible = "Niveles con estacionamiento disponible: \n"
+                        for (i in myParkingLot.levels){
+                            i.checkSpaces()
+                            if (i.checkSpaces()){
+                                levelsAvaible += i.id + "\n"
+                                blankSpaces = true
+                            }
+                        }
+                        if (blankSpaces) {
+                            println(levelsAvaible)
+                            print("Ingrese el identificador del nivel: ")
+                            val nivel = readLine()!!
+                            if (nivel in levelsAvaible) {
+                                println(myParkingLot.levels[myParkingLot.findLevelBool(nivel)!!])
+                                print("Ingrese el numero o letra del estacionamiento donde desea estacionarse: ")
+                                val place = readLine()!!
+                                if (place!="@") {
+                                    if(myParkingLot.levels[myParkingLot.findLevelBool(nivel)!!].checkParking(place)) {
+                                        val newPlaca = Car(licensePlate)
+                                        myParkingLot.levels[myParkingLot.findLevelBool(nivel)!!].addLicensePlate(newPlaca)
+                                    }else{
+                                        println("El numero de estacionamiento ingresado no se encuentra en este nivel")
+                                    }
+                                }else{
+                                    println("el '@' significa que el estacionamiento esta ocupado")
+                                }
+                            }
                         }
                     }
                 }
 
                 2 -> {
-                    miMenu.Admin = true
+                    miMenu.admin = true
                 }
             }
         }

@@ -1,17 +1,19 @@
 package trabajo
 
 
-class Menu(){
-    var Admin: Boolean = true
+class Menu {
+    var admin: Boolean = true
 
     fun getMenu(option: Int): String{
         if (option == 2){
-            Admin = false
+            admin = false
             return """
             Menu:
                 1. Ingresar placa
                 2. Salir
         """.trimIndent()
+        }else if (option >= 3){
+            return "Esta opcion no se encuentra en el menu"
         }
         return """
         Menu:
@@ -23,9 +25,5 @@ class Menu(){
     }
 
     //TODO: revisar que despues de 3 no imprima el menu admin
-
-    fun isAdmin():Boolean{
-        return Admin
-    }
 }
 
