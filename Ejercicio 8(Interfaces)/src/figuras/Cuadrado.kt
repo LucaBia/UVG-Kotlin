@@ -9,7 +9,7 @@ import acciones.Dibujable
 //Clase que implementa las interfaces Describible y Dibujable
 class Cuadrado: Describible, Dibujable {
     //Variables
-    var base: Int
+    override var base: Int
     override var altura: Int
 
     //Constructor
@@ -21,18 +21,21 @@ class Cuadrado: Describible, Dibujable {
     //Metodo que pide los datos del cuadrado es decir para saber la dimension que va a tener el cuadrado
     override fun datos(){
         println("Ingrese la base del cuadrado")
-        val baseCuadrado = readLine()!!.toInt()
+        var baseCuadrado = readLine()!!.toInt()
         base = baseCuadrado
-        base = altura
+        altura = base
+        println(base)
+        println(altura)
     }
 
     //Metodo que funciona por medio de un for para colocar asteriscos y dibujar
     override fun dibujar(){
-        for (i in 1..base){
-            for (i in 1..base){
-                print("*")
+        for (i in 1..altura){
+            for (j in 1..base){
+                print("* ")
             }
             print("\n")
         }
+
     }
 }

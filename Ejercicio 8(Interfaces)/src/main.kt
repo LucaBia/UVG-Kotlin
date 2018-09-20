@@ -1,4 +1,5 @@
 import acciones.Describible
+import acciones.Dibujable
 import figuras.Cuadrado
 
 fun main (args: Array<String>){
@@ -13,19 +14,28 @@ fun main (args: Array<String>){
         val opcion = readLine()!!.toInt()
         when(opcion){
             1 -> {
-                println("""
+                do {
+                    println("""
                     1. Dibujar un Cuadrado
                     2. Dibujar un Rectangulo
                     3. Dibujar un Triangulo
                     4. Salir
                 """.trimIndent())
-                val opcion2 = readLine()!!.toInt()
+                    val opcion2 = readLine()!!.toInt()
+                    var continuar2 =true
+                    when(opcion2){
+                        1 -> {
+                            val cuadrado = Cuadrado()
+                            interfazDescribir(cuadrado)
+                            interfazDibujar(cuadrado)
+                        }
 
-                when(opcion2){
-                    1 -> {
-                        val cuadrado = Cuadrado()
+                        4 ->{
+                            continuar2 = false
+                        }
                     }
-                }
+                }while (continuar2)
+
             }
 
             2 -> {
@@ -37,14 +47,11 @@ fun main (args: Array<String>){
 
 }
 
-fun noseque (describible: Describible){
-
+fun interfazDescribir (describible: Describible){
+    describible.datos()
 }
 
-fun noseque2 (describible: Describible){
-
+fun interfazDibujar (dibujable: Dibujable){
+    dibujable.dibujar()
 }
 
-fun noseque3 (describible: Describible){
-
-}

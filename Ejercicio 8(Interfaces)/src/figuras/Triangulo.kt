@@ -9,7 +9,7 @@ import acciones.Dibujable
 //Clase que implementa las interfaces Describible y Dibujable
 class Triangulo: Describible, Dibujable{
     override var altura: Int
-    var base: Int
+    override var base: Int
 
     constructor(_altura: Int=0, _base:Int=0){
         altura = _altura

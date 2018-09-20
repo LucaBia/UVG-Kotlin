@@ -9,7 +9,7 @@ import acciones.Dibujable
 //Clase que implementa las interfaces Describible y Dibujable
 class Rectangulo: Describible, Dibujable {
     override var altura: Int
-    var base: Int
+    override var base: Int
 
     constructor(_largo: Int=0, _ancho: Int=0){
         altura = _largo
@@ -28,8 +28,8 @@ class Rectangulo: Describible, Dibujable {
 
     //Metodo que funciona por medio de un for para colocar asteriscos y dibujar
     override fun dibujar(){
-        for (i in 1..altura){
-            for (j in 1..base){
+        for (i in 0..altura){
+            for (j in 0..base){
                 print("*")
             }
             print("\n")
