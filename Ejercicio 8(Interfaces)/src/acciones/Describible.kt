@@ -1,0 +1,4 @@
+package acciones
+
+interface Describible {
+}
