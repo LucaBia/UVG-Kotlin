@@ -2,6 +2,7 @@ import acciones.Describible
 import acciones.Dibujable
 import figuras.Cuadrado
 import figuras.Rectangulo
+import figuras.Triangulo
 
 fun main (args: Array<String>){
     var continuar = true
@@ -35,6 +36,12 @@ fun main (args: Array<String>){
                             val rectangulo = Rectangulo()
                             interfazDescribir(rectangulo)
                             interfazDibujar(rectangulo)
+                        }
+
+                        3 -> {
+                            val triangulo = Triangulo()
+                            interfazDescribir(triangulo)
+                            interfazDibujar(triangulo)
                         }
 
                         4 ->{

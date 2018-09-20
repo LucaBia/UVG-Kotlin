@@ -21,15 +21,24 @@ class Triangulo: Describible, Dibujable{
         println("Ingrese el alto del triangulo")
         val altoTriangulo = readLine()!!.toInt()
         altura = altoTriangulo
+        base = altura
+
     }
 
     //Metodo que funciona por medio de un for para colocar asteriscos y dibujar
     override fun dibujar(){
+        var resolucion = ""
+        var a = 1
         for (i in 1..altura){
-            for (j in 1..altura){
-                print("i")
+            for (j in 1..altura-a){
+                resolucion += " "
             }
-            print("\n")
+            for (k in 1..a){
+                resolucion += " *"
+            }
+            resolucion += "\n"
+            a += 1
         }
+        println(resolucion)
     }
 }
