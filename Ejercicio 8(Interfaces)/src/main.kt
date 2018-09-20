@@ -1,3 +1,5 @@
+import acciones.Describible
+import figuras.Cuadrado
 
 fun main (args: Array<String>){
     var continuar = true
@@ -21,7 +23,7 @@ fun main (args: Array<String>){
 
                 when(opcion2){
                     1 -> {
-
+                        val cuadrado = Cuadrado()
                     }
                 }
             }
@@ -32,4 +34,17 @@ fun main (args: Array<String>){
         }
 
     }while(continuar)
+
+}
+
+fun noseque (describible: Describible){
+
+}
+
+fun noseque2 (describible: Describible){
+
+}
+
+fun noseque3 (describible: Describible){
+
 }
