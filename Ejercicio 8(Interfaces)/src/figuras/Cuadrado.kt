@@ -24,8 +24,6 @@ class Cuadrado: Describible, Dibujable {
         var baseCuadrado = readLine()!!.toInt()
         base = baseCuadrado
         altura = base
-        println(base)
-        println(altura)
     }
 
     //Metodo que funciona por medio de un for para colocar asteriscos y dibujar

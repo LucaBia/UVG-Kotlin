@@ -28,8 +28,8 @@ class Rectangulo: Describible, Dibujable {
 
     //Metodo que funciona por medio de un for para colocar asteriscos y dibujar
     override fun dibujar(){
-        for (i in 0..altura){
-            for (j in 0..base){
+        for (i in 1..altura){
+            for (j in 1..base){
                 print("*")
             }
             print("\n")
