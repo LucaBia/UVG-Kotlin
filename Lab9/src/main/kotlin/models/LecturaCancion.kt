@@ -5,10 +5,11 @@ import com.google.gson.Gson
 import dbmodels.Cancion
 
 data class LecturaCancion(
+                          val isFavourite: Boolean = false,
                           val year: String,
                           val country: String,
                           val region: String,
-                          val artistname: String,
+                          val artistName: String,
                           val song: String,
                           val artistGender: String,
                           val groupOrSolo: String,

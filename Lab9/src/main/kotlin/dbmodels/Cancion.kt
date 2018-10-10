@@ -3,11 +3,12 @@ package dbmodels
 import org.jetbrains.exposed.sql.Table
 
 object Cancion: Table() {
-    //val id = integer("id").autoIncrement().primaryKey()
+    val id = integer("id").autoIncrement().primaryKey()
+    val isFavourite = bool("isFavourite")
     val year = varchar("year", length = 25)
     val country = varchar("country", length = 25)
     val region = varchar("region", length = 25)
-    val artistname = varchar("artistName", length = 25)
+    val artistName = varchar("artistName", length = 25)
     val song = varchar("song", length = 25)
     val artistGender = varchar("artistGender", length = 25)
     val groupOrSolo = varchar("groupOrSolo", length = 25)
@@ -30,5 +31,5 @@ object Cancion: Table() {
     val loudness = varchar("loudness", length = 25)
     val valence = varchar("valence", length = 25)
     val happiness = varchar("happiness", length = 25)
-    //val isFavourite = bool("isFavourite")
+
 }
