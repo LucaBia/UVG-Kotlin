@@ -35,4 +35,5 @@ fun menuBienvenida(): String{
         val (heroes, err) = result
         //heroes?.forEach { println(it) }
         Thread.sleep(5000)
+
     }
