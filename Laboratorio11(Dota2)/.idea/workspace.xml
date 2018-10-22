@@ -76,11 +76,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NarradorEspanol.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NarradorEspanol.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/NarradorEspanol.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="615">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NarradorIngles.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/NarradorIngles.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -530,6 +539,7 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/Main.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Equipo.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/NarradorEspanol.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/NarradorIngles.kt" />
       </list>
     </option>
   </component>
@@ -820,8 +830,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/NarradorEspanol.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="615">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/NarradorIngles.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
         </state>
       </provider>
     </entry>
