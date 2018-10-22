@@ -6,6 +6,21 @@ class Equipo(val heroes: ArrayList<Heroe> = arrayListOf(), val torres: ArrayList
         heroes.add(heroe)
     }
 
+    //Funcion para eliminar heroes
+    //Se importa la funcion random para que la eliminacion de heroes sea aleatoriamente
+    fun kill(cantidad: Int): Boolean {
+        if (heroes.size > cantidad) {
+            var kills = cantidad
+            while (kills>0) {
+                val id = Random().nextInt((heroes.size-1))
+                heroes.removeAt(id)
+                kills -= 1
+            }
+            return true
+        }
+        return false
+    }
+
     //Funcion para cuando matan a un Ancient en el equipo
     fun ancientMuerto(): Boolean {
         //Simple ciclo for que retorna falso al matarla
